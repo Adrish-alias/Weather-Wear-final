@@ -67,120 +67,6 @@ body {
     border-bottom: 2px solid #333;
 }
 
-/* Reusable button styling */
-.primary-btn {
-    background: linear-gradient(135deg, #6a8dff 0%, #4f6cff 100%);
-    color: white;
-    box-shadow: 0 8px 20px rgba(79, 108, 255, 0.25);
-}
-.primary-btn:hover {
-    background: linear-gradient(135deg, #7b9aff 0%, #5f7aff 100%) !important;
-    color: #fff !important;
-    box-shadow: 0 10px 24px rgba(79, 108, 255, 0.32) !important;
-}
-
-/* Home info cards */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px 20px;
-    position: relative;
-    top: -30px;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 16px;
-    padding: 18px 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.6);
-    transition: transform 250ms ease, box-shadow 250ms ease;
-}
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
-}
-.card-title {
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #667085;
-    margin-bottom: 6px;
-}
-.card-value {
-    font-size: 40px;
-    font-weight: 600;
-    color: #111827;
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-}
-.temp-card .card-value span {
-    display: inline-block;
-    animation: numberPop 700ms ease forwards;
-}
-.weather-card .card-value {
-    animation: fadeSlideUp 500ms ease forwards;
-}
-
-/* City chip */
-.city-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.9);
-    color: #111827;
-    border-radius: 999px;
-    padding: 8px 14px;
-    font-size: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    margin: 0 auto 8px;
-}
-
-/* Recommendation container */
-.recc-wrapper {
-    max-width: 900px;
-    margin: 10px auto 40px;
-    padding: 0 20px;
-}
-.recc-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 18px 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 1px solid #f1f1f1;
-}
-.recc-title {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    color: #111827;
-}
-.recc-card #recc {
-    font-size: 18px;
-    color: #374151;
-}
-.recc-card #recc ul {
-    margin: 8px 0 0 16px;
-}
-.recc-card #recc li {
-    margin: 6px 0;
-}
-
-/* Animations */
-@keyframes numberPop {
-    0% { transform: scale(0.9); opacity: 0; }
-    60% { transform: scale(1.06); opacity: 1; }
-    100% { transform: scale(1); }
-}
-@keyframes fadeSlideUp {
-    0% { transform: translateY(6px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
 /* Section Management */
 .section {
     display: none;
@@ -326,7 +212,8 @@ button {
     border: none;
     transition: 350ms;
     font-size: 30px;
-    box-shadow: 1px 1px 5px black;
+    color: aliceblue;
+    background-color: #181818;
 }
 
 button:hover {
@@ -345,6 +232,14 @@ input {
     border: 2px solid black;
     font-size: 30px;
 }
+.City{
+ margin: auto;
+    font-size: 55px;
+    text-align: center;
+    color: #181818;
+    position:relative;
+    top: -45px;
+}
 
 .location {
     margin: auto;
@@ -352,18 +247,59 @@ input {
     padding: 20px;
     text-align: center;
 }
-
-.recc {
+.clothes {
+    background-color: rgb(255, 255, 255);
+    height: 0px;
+    width:0px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
-    padding: 10px;
-    font-size: 35px;
+    position: relative;
+    top:50px ;
+    color: #181818;
+
 }
-.recc ul{
-    text-align: left;
+.clothes li{
+    font-size: 30px;
 }
+.clothes strong{
+font-size: 30px;
+}
+.weather-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px #ccc;
+  padding: 20px 30px;
+  border-radius: 10px;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 300ms;
+}
+.weather-card:hover{
+    transform: scale(1.05);
+}
+
+.weather-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.weather-card p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #444;
+}
+
 /* Responsive Design for Navbar */
 @media(max-width: 768px) {
     .nav-container {
@@ -401,7 +337,7 @@ input {
     }
 }
 
-@media(max-width:1500px) {
+@media(max-width:1000px) {
     .header {
         text-align: center;
         margin: auto;
@@ -410,7 +346,12 @@ input {
         justify-content: center;
         transition: 300ms;
     }
-
+    .City{
+ margin: auto;
+    font-size: 45px;
+    text-align: center;
+    color: #181818;
+}
     .content {
         display: flex;
         flex-direction: column;
@@ -461,17 +402,42 @@ input {
         text-align: center;
     }
 
-    .recc {
-        position: relative;
-        text-align: center;
-        top: -50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: auto;
-        padding: 20px;
-        font-size: 20px;
-    }
+    
+    .weather-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px #ccc;
+  padding: 5px 5px;
+  border-radius: 10px;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 300ms;
+}
+
+.weather-card h3 {
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #333;
+}
+
+.weather-card p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #444;
+}
+.clothes li{
+    font-size: 17px;
+}
+.clothes strong{
+font-size: 21px;
+}
 }
 
 @media(max-width:400px) {
@@ -483,7 +449,12 @@ input {
         justify-content: center;
         transition: 300ms;
     }
-
+   .City{
+ margin: auto;
+    font-size: 25px;
+    text-align: center;
+    color: #181818;
+}
     .content {
         display: flex;
         flex-direction: column;
@@ -529,15 +500,40 @@ input {
         padding: 20px;
         text-align: center;
     }
+.weather-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-    .recc {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: auto;
-        padding: 15px;
-        font-size: 15px;
-        color: rgb(9, 9, 9);
-    }
+.weather-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px #ccc;
+  padding: 0px 0px;
+  border-radius: 10px;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 300ms;
+}
+
+.weather-card h3 {
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #333;
+}
+
+.weather-card p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #444;
+}
+.clothes li{
+    font-size: 14px;
+}
+.clothes strong{
+font-size: 18px;
+}
+
 }
