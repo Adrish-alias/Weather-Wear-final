@@ -1,0 +1,429 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Navigation Bar Styles - Minimalistic */
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 40px;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: #333;
+}
+
+.nav-link.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+}
+
+/* Section Management */
+.section {
+    display: none;
+    padding-top: 80px;
+    min-height: calc(100vh - 80px);
+}
+
+.section.active {
+    display: block;
+}
+
+/* About Section Styles - Minimalistic */
+.about-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.about-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.about-content h2 {
+    color: #333;
+    font-size: 1.3em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.about-content p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.about-content ul {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.about-content li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Map Section Styles - Minimalistic */
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.map-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.map-content {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.map-content p {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.map-frame {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.map-note {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 300px;
+  z-index: -1;
+  will-change: transform;
+}
+
+.header {
+    text-align: center;
+    margin: auto;
+    font-size: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: black;
+    padding: 60px;
+    transition: 300ms;
+}
+
+.content {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 30px;
+    font-size: 45px;
+    position: relative;
+    top: -60px;
+    transition: 300ms;
+}
+
+.check {
+    padding: 10px;
+    position: relative;
+    top: 35px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    transition: 350ms;
+    font-size: 30px;
+    box-shadow: 1px 1px 5px black;
+}
+
+button:hover {
+    color: aliceblue;
+    background-color: darkgray;
+    box-shadow: 0px 0px 0px 0px;
+    transform: scale(1.05);
+    box-shadow: 1px 1px 5px black;
+}
+
+input {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 30px;
+}
+
+.location {
+    margin: auto;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.recc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 10px;
+    font-size: 35px;
+}
+.recc ul{
+    text-align: left;
+}
+/* Responsive Design for Navbar */
+@media(max-width: 768px) {
+    .nav-container {
+        padding: 0 15px;
+        height: 50px;
+    }
+    
+    .nav-logo span {
+        font-size: 18px;
+    }
+    
+    .nav-menu {
+        gap: 25px;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+    }
+    
+    .section {
+        padding-top: 70px;
+    }
+    
+    .about-container {
+        margin: 10px;
+        padding: 25px 15px;
+    }
+    
+    .about-container h1 {
+        font-size: 1.8em;
+    }
+    
+    .map-container h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media(max-width:1500px) {
+    .header {
+        text-align: center;
+        margin: auto;
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        transition: 300ms;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 30px;
+        font-size: 25px;
+        width: 60vw;
+        color: black;
+        text-shadow: none;
+        transition: 300ms;
+    }
+
+    button {
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        transition: 350ms;
+        font-size: 18px;
+    }
+
+    button:hover {
+        color: aliceblue;
+        background-color: darkgray;
+        box-shadow: 0px 0px 0px 0px;
+        transform: scale(1.05);
+    }
+
+    input {
+        width: 50vw;
+        max-width: 350px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid black;
+        font-size: 20px;
+    }
+
+    .check {
+        padding: 5px;
+        position: relative;
+        top: 20px;
+    }
+
+    .location {
+        margin: auto;
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .recc {
+        position: relative;
+        text-align: center;
+        top: -50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 20px;
+        font-size: 20px;
+    }
+}
+
+@media(max-width:400px) {
+    .header {
+        text-align: center;
+        margin: auto;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+        transition: 300ms;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 30px;
+        font-size: 25px;
+        width: 60vw;
+        transition: 300ms;
+    }
+
+    button {
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        transition: 350ms;
+        font-size: 18px;
+    }
+
+    button:hover {
+        color: aliceblue;
+        background-color: darkgray;
+        box-shadow: 0px 0px 0px 0px;
+        transform: scale(1.05);
+    }
+
+    input {
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid black;
+        font-size: 20px;
+    }
+
+    .check {
+        padding: 5px;
+        position: relative;
+        top: 20px;
+    }
+
+    .location {
+        margin: auto;
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .recc {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 15px;
+        font-size: 15px;
+        color: rgb(9, 9, 9);
+    }
+}
