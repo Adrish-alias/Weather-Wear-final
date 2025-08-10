@@ -65,16 +65,32 @@
         <div class="content" id="content">
           <p>Search by City:</p>
           <input type="text" placeholder="City Name" style="text-align: center" id="city" />
-          <button class="check" onclick="getWeather()" id="but">Check</button>
+          <button class="check primary-btn" onclick="getWeather()" id="but">Check</button>
 
           <p style="position: relative; top: 7px">Or</p>
 
-          <button onclick="getlocation()" id="but">Use current location 𖦏</button>
+          <button class="primary-btn" onclick="getlocation()" id="but">Use current location 𖦏</button>
+        </div>
+
+        <div class="city-chip" id="city-name">Your city</div>
+
+        <div class="info-cards">
+          <div class="card temp-card">
+            <div class="card-title">Temperature</div>
+            <div class="card-value"><span id="temp-value">--</span>°C</div>
+          </div>
+          <div class="card weather-card">
+            <div class="card-title">Weather</div>
+            <div class="card-value" id="weather-condition">--</div>
+          </div>
         </div>
       </div>
-
-      <div class="clothes">
-        <p class="recc" id="recc"></p>
+      
+      <div class="recc-wrapper">
+        <div class="recc-card">
+          <h3 class="recc-title">Clothing Recommendations</h3>
+          <div id="recc"></div>
+        </div>
       </div>
     </div>
   </div>
