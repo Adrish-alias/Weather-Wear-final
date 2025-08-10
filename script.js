@@ -2,37 +2,37 @@ let vantaEffect = null;
 
 // Navigation functionality
 function showSection(sectionName) {
-    // Hide all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Show the selected section
-    const selectedSection = document.getElementById(sectionName);
-    if (selectedSection) {
-        selectedSection.classList.add('active');
+  // Hide all sections
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.classList.remove('active');
+  });
+
+  // Show the selected section
+  const selectedSection = document.getElementById(sectionName);
+  if (selectedSection) {
+    selectedSection.classList.add('active');
+  }
+
+  // Update navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+
+  // Add active class to the clicked link
+  const activeLink = document.querySelector(`[onclick="showSection('${sectionName}')"]`);
+  if (activeLink) {
+    activeLink.classList.add('active');
+  }
+
+  // If switching to home section, ensure Vanta background is visible
+  if (sectionName === 'home') {
+    const vantaBg = document.getElementById('vanta-bg');
+    if (vantaBg) {
+      vantaBg.style.display = 'block';
     }
-    
-    // Update navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Add active class to the clicked link
-    const activeLink = document.querySelector(`[onclick="showSection('${sectionName}')"]`);
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
-    
-    // If switching to home section, ensure Vanta background is visible
-    if (sectionName === 'home') {
-        const vantaBg = document.getElementById('vanta-bg');
-        if (vantaBg) {
-            vantaBg.style.display = 'block';
-        }
-    }
+  }
 }
 
 // Map your weather conditions to fog colors
@@ -108,76 +108,76 @@ function changeBackgroundByCondition(condition) {
 }
 //clothing reccomenation
 function getClothingRecommendation(temp, weather) {
-    weather = weather.toLowerCase();
-    let recommendations = [];
+  weather = weather.toLowerCase();
+  let recommendations = [];
 
-    if (temp < 5) {
-        if (weather.includes("snow")) {
-            recommendations.push("🧥 Heavy coat or parka");
-            recommendations.push("🧤 Gloves & 🧣 scarf");
-            recommendations.push("🥾 Waterproof insulated boots");
-            recommendations.push("🧦 Thermal inner layers");
-        } else if (weather.includes("rain")) {
-            recommendations.push("🧥 Heavy coat with hood");
-            recommendations.push("☔ Waterproof jacket or raincoat");
-            recommendations.push("🥾 Waterproof boots");
-            recommendations.push("🧤 Warm gloves");
-        } else {
-            recommendations.push("🧥 Heavy winter jacket");
-            recommendations.push("🧤 Gloves");
-            recommendations.push("🧦 Thick socks");
-        }
+  if (temp < 5) {
+    if (weather.includes("snow")) {
+      recommendations.push("🧥 Heavy coat or parka");
+      recommendations.push("🧤 Gloves & 🧣 scarf");
+      recommendations.push("🥾 Waterproof insulated boots");
+      recommendations.push("🧦 Thermal inner layers");
+    } else if (weather.includes("rain")) {
+      recommendations.push("🧥 Heavy coat with hood");
+      recommendations.push("☔ Waterproof jacket or raincoat");
+      recommendations.push("🥾 Waterproof boots");
+      recommendations.push("🧤 Warm gloves");
+    } else {
+      recommendations.push("🧥 Heavy winter jacket");
+      recommendations.push("🧤 Gloves");
+      recommendations.push("🧦 Thick socks");
     }
-    else if (temp < 15) {
-        if (weather.includes("rain")) {
-            recommendations.push("🧥 Warm jacket");
-            recommendations.push("☔ Umbrella or raincoat");
-            recommendations.push("👖 Long pants");
-        } else if (weather.includes("snow")) {
-            recommendations.push("🧥 Winter coat");
-            recommendations.push("🧤 Gloves");
-            recommendations.push("🧣 Scarf");
-            recommendations.push("🥾 Boots");
-        } else {
-            recommendations.push("🧥 Light sweater or jacket");
-            recommendations.push("👖 Jeans or trousers");
-            recommendations.push("🧦 Warm socks");
-        }
+  }
+  else if (temp < 15) {
+    if (weather.includes("rain")) {
+      recommendations.push("🧥 Warm jacket");
+      recommendations.push("☔ Umbrella or raincoat");
+      recommendations.push("👖 Long pants");
+    } else if (weather.includes("snow")) {
+      recommendations.push("🧥 Winter coat");
+      recommendations.push("🧤 Gloves");
+      recommendations.push("🧣 Scarf");
+      recommendations.push("🥾 Boots");
+    } else {
+      recommendations.push("🧥 Light sweater or jacket");
+      recommendations.push("👖 Jeans or trousers");
+      recommendations.push("🧦 Warm socks");
     }
-    else if (temp < 25) {
-        if (weather.includes("rain")) {
-            recommendations.push("🧥 Light waterproof jacket");
-            recommendations.push("☔ Carry an umbrella");
-            recommendations.push("👖 Light pants");
-        } else if (weather.includes("wind")) {
-            recommendations.push("🧥 Windbreaker");
-            recommendations.push("👕 Light shirt");
-            recommendations.push("👖 Comfortable pants");
-        } else {
-            recommendations.push("👕 T-shirt or polo");
-            recommendations.push("🧥 Light cardigan or hoodie");
-            recommendations.push("👖 Jeans or chinos");
-        }
+  }
+  else if (temp < 25) {
+    if (weather.includes("rain")) {
+      recommendations.push("🧥 Light waterproof jacket");
+      recommendations.push("☔ Carry an umbrella");
+      recommendations.push("👖 Light pants");
+    } else if (weather.includes("wind")) {
+      recommendations.push("🧥 Windbreaker");
+      recommendations.push("👕 Light shirt");
+      recommendations.push("👖 Comfortable pants");
+    } else {
+      recommendations.push("👕 T-shirt or polo");
+      recommendations.push("🧥 Light cardigan or hoodie");
+      recommendations.push("👖 Jeans or chinos");
     }
-    else {
-        if (weather.includes("rain")) {
-            recommendations.push("👕 Light clothes");
-            recommendations.push("☔ Umbrella or rain poncho");
-            recommendations.push("🩳 Shorts or breathable pants");
-        } else if (weather.includes("sun") || weather.includes("clear")) {
-            recommendations.push("👕 Light T-shirt or tank top");
-            recommendations.push("🩳 Shorts");
-            recommendations.push("🕶️ Sunglasses");
-            recommendations.push("🧢 Hat or cap");
-        } else {
-            recommendations.push("👕 Light clothing suitable for warm weather");
-            recommendations.push("🩳 Shorts or thin trousers");
-            recommendations.push("💧 Stay hydrated");
-        }
+  }
+  else {
+    if (weather.includes("rain")) {
+      recommendations.push("👕 Light clothes");
+      recommendations.push("☔ Umbrella or rain poncho");
+      recommendations.push("🩳 Shorts or breathable pants");
+    } else if (weather.includes("sun") || weather.includes("clear")) {
+      recommendations.push("👕 Light T-shirt or tank top");
+      recommendations.push("🩳 Shorts");
+      recommendations.push("🕶️ Sunglasses");
+      recommendations.push("🧢 Hat or cap");
+    } else {
+      recommendations.push("👕 Light clothing suitable for warm weather");
+      recommendations.push("🩳 Shorts or thin trousers");
+      recommendations.push("💧 Stay hydrated");
     }
+  }
 
-    // Return HTML list
-    return "<ul>" + recommendations.map(item => `<li>${item}</li>`).join("") + "</ul>";
+  // Return HTML list
+  return "<ul>" + recommendations.map(item => `<li>${item}</li>`).join("") + "</ul>";
 }
 
 // Geolocation success callback - fetch weather based on coords
@@ -193,25 +193,36 @@ function success(position) {
       let city = data.name;
       let temp = data.main.temp;
       let weather = data.weather[0].main;
-      if(weather==="Rain"||weather==="Clouds"||weather==="Snow"){
-        document.getElementById("header").style.color="white";
-        document.getElementById("content").style.color="white";
-        document.getElementById("cont").style.color="white";
+      document.getElementById("City").textContent=`City: ${city}`;
+      if (weather === "Rain" || weather === "Clouds" || weather === "Snow") {
+        document.getElementById("header").style.color = "white";
+        document.getElementById("content").style.color = "white";
+        document.getElementById("cont").style.color = "white";
+        document.getElementById("but1").style.color = "black";
+        document.getElementById("but1").style.backgroundColor = "white";
+        document.getElementById("but2").style.color = "black";
+        document.getElementById("but2").style.backgroundColor = "white";
+         document.getElementById("City").style.color = "white";
+      }
+      if (weather === "Clear"){
+        document.getElementById("header").style.color = "black";
+        document.getElementById("content").style.color = "black";
+        document.getElementById("cont").style.color = "black";
+        document.getElementById("but1").style.color = "white";
+        document.getElementById("but1").style.backgroundColor ="black" ;
+        document.getElementById("but2").style.color = "white";
+        document.getElementById("but2").style.backgroundColor = "black";
+         document.getElementById("City").style.color = "black";
       }
 
       changeBackgroundByCondition(weather);
-
-      // Update cards and recommendation
-      const cityNameEl = document.getElementById("city-name");
-      const tempValueEl = document.getElementById("temp-value");
-      const weatherCondEl = document.getElementById("weather-condition");
-
-      if (cityNameEl) cityNameEl.textContent = city;
-      if (tempValueEl) tempValueEl.textContent = Math.round(temp);
-      if (weatherCondEl) weatherCondEl.textContent = weather;
-
-      document.getElementById("recc").innerHTML = `
-        ${getClothingRecommendation(temp, weather)}
+      document.getElementById("clothes").style.width = "60vw";
+      document.getElementById("clothes").style.height = "auto";
+      document.getElementById("tempValue").textContent = `${temp}°C`;
+      document.getElementById("weatherValue").textContent = `${weather}`;
+      document.getElementById("clothes").innerHTML = `
+        <p><strong style="position:relative; top:20px;">Recommendation:</strong></p>
+        <p> ${getClothingRecommendation(temp, weather)}</p>
       `;
     })
     .catch(err => {
@@ -255,30 +266,40 @@ function fetchWeatherByCity(city) {
 
       const temp = data.main.temp;
       const weather = data.weather[0].main;
-      const City = data.name;
-      
+      const city = data.name;
+      document.getElementById("City").textContent= `City: ${city}`;
 
       changeBackgroundByCondition(weather);
 
-      // Adjust text colors for darker backgrounds
-      if(weather==="Rain"||weather==="Clouds"||weather==="Snow"){
-         document.getElementById("header").style.color="white";
-         document.getElementById("content").style.color="white";
-         document.getElementById("cont").style.color="white";
+      // You can adjust text color based on weather condition here
+      if (weather === "Rain" || weather === "Clouds" || weather === "Snow") {
+        document.getElementById("header").style.color = "white";
+        document.getElementById("content").style.color = "white";
+        document.getElementById("but1").style.color = "black";
+        document.getElementById("but1").style.backgroundColor = "white";
+        document.getElementById("but2").style.color = "black";
+        document.getElementById("but2").style.backgroundColor = "white";
+        document.getElementById("City").style.color = "white";
+
       }
-
-      // Update cards and recommendation
-      const cityNameEl = document.getElementById("city-name");
-      const tempValueEl = document.getElementById("temp-value");
-      const weatherCondEl = document.getElementById("weather-condition");
-
-      if (cityNameEl) cityNameEl.textContent = City;
-      if (tempValueEl) tempValueEl.textContent = Math.round(temp);
-      if (weatherCondEl) weatherCondEl.textContent = weather;
-
-      document.getElementById("recc").innerHTML = `
-        ${getClothingRecommendation(temp, weather)}
-      `;
+      if (weather === "Clear"){
+        document.getElementById("header").style.color = "black";
+        document.getElementById("content").style.color = "black";
+        document.getElementById("cont").style.color = "black";
+        document.getElementById("but1").style.color = "white";
+        document.getElementById("but1").style.backgroundColor ="black" ;
+        document.getElementById("but2").style.color = "white";
+        document.getElementById("but2").style.backgroundColor = "black";
+         document.getElementById("City").style.color = "black";
+      }
+      document.getElementById("tempValue").textContent = `${temp}°C`;
+      document.getElementById("weatherValue").textContent = `${weather}`;
+      document.getElementById("clothes").style.width = "60vw";
+      document.getElementById("clothes").style.height = "auto";
+      document.getElementById("clothes").innerHTML = 
+        `<p> <strong style="position:relative; top:20px;"> Recommendation: </strong> </p>
+        <p> ${getClothingRecommendation(temp, weather)}</p>`;
+      
     })
     .catch(err => console.error("Error fetching weather:", err));
 }
@@ -286,7 +307,7 @@ function fetchWeatherByCity(city) {
 // Initialize with default weather condition so Vanta Fog shows right away
 document.addEventListener("DOMContentLoaded", () => {
   changeBackgroundByCondition("clear");
-  
+
   // Set up navigation based on URL hash
   const hash = window.location.hash.substring(1);
   if (hash && ['home', 'about', 'map'].includes(hash)) {
@@ -294,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     showSection('home');
   }
-  
+
   // Listen for hash changes
   window.addEventListener('hashchange', () => {
     const newHash = window.location.hash.substring(1);
