@@ -195,18 +195,23 @@ function success(position) {
       let weather = data.weather[0].main;
       if(weather==="Rain"||weather==="Clouds"||weather==="Snow"){
         document.getElementById("header").style.color="white";
-        document.getElementById("recc").style.color="white";
         document.getElementById("content").style.color="white";
         document.getElementById("cont").style.color="white";
       }
 
       changeBackgroundByCondition(weather);
 
-      document.querySelector(".recc").innerHTML = `
-        <p>City: ${city}</p>
-        <p>Temperature: ${temp}°C</p>
-        <p>Weather: ${weather}</p>
-        <p><strong>Recommendation:</strong> ${getClothingRecommendation(temp, weather)}</p>
+      // Update cards and recommendation
+      const cityNameEl = document.getElementById("city-name");
+      const tempValueEl = document.getElementById("temp-value");
+      const weatherCondEl = document.getElementById("weather-condition");
+
+      if (cityNameEl) cityNameEl.textContent = city;
+      if (tempValueEl) tempValueEl.textContent = Math.round(temp);
+      if (weatherCondEl) weatherCondEl.textContent = weather;
+
+      document.getElementById("recc").innerHTML = `
+        ${getClothingRecommendation(temp, weather)}
       `;
     })
     .catch(err => {
@@ -255,19 +260,24 @@ function fetchWeatherByCity(city) {
 
       changeBackgroundByCondition(weather);
 
-      // You can adjust text color based on weather condition here
-     if(weather==="Rain"||weather==="Clouds"||weather==="Snow"){
-        document.getElementById("header").style.color="white";
-        document.getElementById("recc").style.color="white";
-        document.getElementById("content").style.color="white";
-        document.getElementById("cont").style.color="white";
-}
+      // Adjust text colors for darker backgrounds
+      if(weather==="Rain"||weather==="Clouds"||weather==="Snow"){
+         document.getElementById("header").style.color="white";
+         document.getElementById("content").style.color="white";
+         document.getElementById("cont").style.color="white";
+      }
+
+      // Update cards and recommendation
+      const cityNameEl = document.getElementById("city-name");
+      const tempValueEl = document.getElementById("temp-value");
+      const weatherCondEl = document.getElementById("weather-condition");
+
+      if (cityNameEl) cityNameEl.textContent = City;
+      if (tempValueEl) tempValueEl.textContent = Math.round(temp);
+      if (weatherCondEl) weatherCondEl.textContent = weather;
 
       document.getElementById("recc").innerHTML = `
-        <p>City: ${City}</p>
-        <p>Temperature: ${temp}°C</p>
-        <p>Condition: ${weather}</p>
-        <p><strong>Recommendation:</strong> ${getClothingRecommendation(temp, weather)}</p>
+        ${getClothingRecommendation(temp, weather)}
       `;
     })
     .catch(err => console.error("Error fetching weather:", err));
