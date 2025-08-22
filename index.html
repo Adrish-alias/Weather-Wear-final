@@ -65,14 +65,16 @@
 
           <p style="position: relative; top: 7px">Or</p>
 
-          <button onclick="getlocation()" id="but2">Use current location 𖦏</button>
+          <button onclick="getlocation()" id="but2">Use current location </button>
 
         </div>
         <p id="City" class="City"></p>
       </div>
       <div class="weather-cards">
+        
         <div class="weather-card" id="tempCard">
           <h3>Temperature</h3>
+          <a id="swap" class="swap" onclick="celsius_fahrenheit()"><h2>⇄</h2></a>
           <p id="tempValue">--°C</p>
         </div>
         <div class="weather-card" id="conditionCard">
@@ -85,6 +87,7 @@
 
       </div>
     </div>
+    <div class="space" style="height: 40px;"></div>
   </div>
 
   <!-- About Section -->
@@ -143,3 +146,4 @@
 </body>
 
 </html>
+
