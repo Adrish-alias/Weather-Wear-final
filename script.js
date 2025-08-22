@@ -1,5 +1,6 @@
 let vantaEffect = null;
-
+let c=1;
+let temp=null;
 // Navigation functionality
 function showSection(sectionName) {
   // Hide all sections
@@ -32,6 +33,30 @@ function showSection(sectionName) {
     if (vantaBg) {
       vantaBg.style.display = 'block';
     }
+  }
+}
+//converting temp from celsius to fahrenheit
+function celsius_fahrenheit(){
+  if(c===1){
+   if(temp===null){
+   document.getElementById("tempValue").textContent = `--°F`;
+   c=0;}
+   else{
+    let f = (temp * 9/5) + 32;
+    f = parseFloat(f.toFixed(1));
+    document.getElementById("tempValue").textContent = `${f} °F`;
+   c=0;
+   }
+  }
+  else{
+   if(temp===null){
+   document.getElementById("tempValue").textContent = `--°C`;
+   c=1;}
+   else{
+    document.getElementById("tempValue").textContent = `${temp} °C`;
+  c=1;
+   }
+   
   }
 }
 
@@ -191,7 +216,7 @@ function success(position) {
     .then(response => response.json())
     .then(data => {
       let city = data.name;
-      let temp = data.main.temp;
+      temp = data.main.temp;
       let weather = data.weather[0].main;
       document.getElementById("City").textContent=`City: ${city}`;
       if (weather === "Rain" || weather === "Clouds" || weather === "Snow") {
@@ -264,7 +289,7 @@ function fetchWeatherByCity(city) {
         return;
       }
 
-      const temp = data.main.temp;
+      temp = data.main.temp;
       const weather = data.weather[0].main;
       const city = data.name;
       document.getElementById("City").textContent= `City: ${city}`;
