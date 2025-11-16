@@ -28,6 +28,4 @@ You need an OpenWeather API key. Replace the key in your JavaScript file with yo
 
 const apiKey = "YOUR_API_KEY_HERE";
 
-License
 
-This project is open-source under the MIT License.
